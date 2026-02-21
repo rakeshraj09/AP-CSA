@@ -1,0 +1,140 @@
+
+ /**
+ * This class defines a basic Terrain.
+ *
+ * @author Rakesh Raj
+ * @version 4/1/25
+ */
+
+public class Terrain
+{
+    // instance variables
+    private int length, width;
+
+    // Constructor for objects of class Terrain
+    public Terrain(int l, int w)
+    {
+        // initialize instance variables
+        length = l;
+        width = w;
+    }
+
+    public String getTerrainSize()
+    {
+        return "Land has dimensions " + length + " X " + width;
+    }
+}
+
+
+
+
+public class Forest extends Terrain{
+    private int length, width, numTrees;
+    public Forest(int l, int w, int numTrees){
+        super(l, w);
+        length = l;
+        width = w;
+        this.numTrees = numTrees;
+    }
+
+    public String getForestSize()
+    {
+        return "Forest and has dimensions " + length + " X " + width + " and has " + numTrees+ " trees.";
+    }
+    
+}
+
+
+public class Mountain extends Terrain {
+    private int length, width, numMountains;
+    public Mountain(int l, int w, int numMountains){
+        super(l, w);
+        length = l;
+        width = w;
+        this.numMountains = numMountains;
+    }
+
+    public String getMountainSize()
+    {
+        return "Land has dimensions " + length + " X " + width + " and has " + numMountains+ " mountains.";
+    }
+    
+}
+
+
+public class Pond extends Terrain {
+    private int length, width, numFish;
+    public Pond(int l, int w, int numFish){
+        super(l, w);
+        length = l;
+        width = w;
+        this.numFish = numFish;
+    }
+
+    public String getPondSize()
+    {
+        return "Pond has dimensions " + length + " X " + width + " and has " + numFish+ " fish.";
+    }
+}
+
+
+public class WinterMountain extends Mountain {
+    private int length, width, numMountains;
+    private double Temp;
+    public WinterMountain(int l, int w, int numMountains, double Temp){
+        super(l, w, numMountains);
+        length = l;
+        width = w;
+        this.numMountains = numMountains;
+        this.Temp = Temp;
+    }
+
+    public String getWinterMountainSize()
+    {
+        return "Winter Mountain Land has dimensions " + length + " X " + width + " and has " + numMountains+ " Mountains and temperature "+ Temp+" degrees.";
+    }
+    
+}
+
+
+
+public class WinterPond extends Pond {
+    private int length, width, numFish;
+    private double Temp;
+    public WinterPond(int l, int w, int numFish, double Temp){
+        super(l, w, numFish);
+        length = l;
+        width = w;
+        this.numFish=numFish;
+        this.Temp = Temp;
+    }
+
+    public String getWinterPondSize()
+    {
+        return "Winter Pond has dimensions " + length + " X " + width + ", " + numFish+ " fish, and has temp " + Temp +" degrees.";
+    }
+}
+
+
+
+public class TerrainTester {
+    public static void main(String[] args) {
+        Terrain terrain = new Terrain(150, 240);
+        Forest forest = new Forest(400, 400, 180);
+        Mountain mountain = new Mountain(600, 200, 12);
+        WinterMountain winMountain = new WinterMountain(500, 500, 30, 12.34);
+        Pond pond = new Pond(160, 320, 45);
+        WinterPond winpond = new WinterPond(160, 320, 45, 1.9);
+        
+        System.out.println(terrain.getTerrainSize()+"\n");
+        
+        System.out.println(forest.getForestSize()+"\n");
+        
+        System.out.println(mountain.getMountainSize()+"\n");      
+        System.out.println(winMountain.getWinterMountainSize()+"\n");
+        System.out.println(pond.getPondSize()+"\n");
+        System.out.println(winpond.getWinterPondSize()+"\n");
+    }
+}
+
+
